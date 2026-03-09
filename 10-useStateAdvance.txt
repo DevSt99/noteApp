@@ -1,0 +1,84 @@
+// destuctring codes
+
+import React, { useState } from 'react'
+const App = () => {
+  const [num, setNum] = useState({user:'jaimin',age:20})
+
+  const btnClicked = () =>{
+   const newNum = {...num}
+   newNum.user = 'radhe'  
+   setNum(newNum)   
+  }
+  return (
+    <div>
+      <h1>{num.user} {num.age}</h1>
+      <button onClick={btnClicked}> click</button>
+    </div>
+  )
+}
+export default App
+
+
+
+import React, { useState } from 'react'
+const App = () => {
+  const [num, setNum] = useState([10,20,30])
+   const btnClicked = () =>{
+    const newNum = [...num]
+    newNum.push(99)
+    console.log(newNum);
+    setNum(newNum)
+    
+   }
+  return (
+    <div>
+      <h1>{num}</h1>
+      <button onClick={btnClicked}> click</button>
+    </div>
+  )
+}
+//own suggest 
+// 99 add everytime button btnClicked
+export default App
+
+// short method change object value
+import React, { useState } from 'react'
+const App = () => {
+  const [num, setNum] = useState({user:'jaimin',age:20})
+   const btnClicked = () =>{
+   setNum(prev=>({...prev,age:50}))
+   }
+  return (
+    <div>
+      <h1>{num.user},{num.age}</h1>
+      <button onClick={btnClicked}> click</button>
+    </div>
+  )
+}
+
+export default App
+
+
+//batch update in react
+
+import React, { useState } from 'react'
+
+const App = () => {
+  const [num, setNum] = useState(10)
+
+  const btnClicked = ()=>{
+  setNum(prev=>(prev + 1))   
+  setNum(prev=>(prev + 1))   
+  setNum(prev=>(prev + 1))   
+  
+  }
+
+  return (
+    <div>
+      <h1>{num}</h1>
+      <button onClick={btnClicked}> click</button>
+    </div>
+  )
+}
+
+export default App
